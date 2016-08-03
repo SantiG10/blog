@@ -5,6 +5,8 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Hola a Todos a mi Blog</h1>
+	<% if user_signed_in? %>
+	<h1> Bienvenido <%= current_user.email %></h1>
+	<% end %>
 </body>
 </html>

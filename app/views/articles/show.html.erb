@@ -5,3 +5,25 @@
 <div>
 	<%= link_to "Editar", edit_article_path(@article), class:"green" %>
 </div>
+<% unless @article.user.nil? %>
+	<p>
+		Escrito por: <%= @article.user.email%>
+	</p>
+<% end %>
+<div class="field">
+	<%= image_tag @article.cover.url(:thumb) %>
+</div>
+<p>
+		Visitas: <%= @article.visits_count%>
+</p>
+<div class="feild">
+	<h3>Comentarios</h3>
+	<ul id="comments-box">
+		<% @article.comments.each do |comment|%>
+			<li type="square">
+				<%= comment.body%> - Escrito por: <%= comment.user.email %>	
+			</li>
+		<% end %>
+	</ul>
+	<%= render "comments/form" %>
+</div>

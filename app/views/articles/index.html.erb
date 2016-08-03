@@ -3,4 +3,9 @@
 	<div>
 		<%= article.body %> - <%= link_to "Eliminar", article, method: :delete, class:"green"  %>
 	</div>
+	<% unless article.user.nil? %>
+		<p>
+			Escrito por: <%= article.user.email%>
+		</p>
+	<%end%>
 <%end%>

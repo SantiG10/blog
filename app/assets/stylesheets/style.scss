@@ -1,73 +1,84 @@
 html,body{
-	margin: 0px;
-	font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .btn{
-	background-color: inherit;
-	border: none;
-	outline: none;
-	text-transform: uppercase;
-	cursor: pointer; 
-	font-size: 1.2em;
-	padding: 10px 12px;
-	display:block;
-	margin-left: auto;
-  	margin-right: auto;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer; 
+  font-size: 1.2em;
+  padding: 10px 12px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn2{
+  background-color: inherit;
+  border: none;
+  border-bottom: solid blue;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer; 
+  font-size: 1.2em;
+  padding: 10px 12px;
 }
 
 .be-green{
-	background-color: #57E56D;
+  background-color: #0277bd;
 }
 
 .white{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .large-padding{
-	padding: 8px 5px;
+  padding: 8px 5px;
 }
 
 ul{
-	list-style: none;
+  list-style: none;
 }
 
 a,a:visited{
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .no-margin{
-	margin: 0px;
+  margin: 0px;
 }
 
 #logo{
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
-.field{
-	margin-top:1em; 
-}
-
-.top-space{
-	margin-top:1em;
+.field, .top-space, .actions {
+  margin-top:1em; 
 }
 
 .top-space2{
-	margin-top:2em;
+  margin-top:2em;
 }
 .green{
-	color: green !important; 
-	font-weight:bold;
-	font-size: 1.2em;
+  color: green !important; 
+  font-weight:bold;
+  font-size: 1.2em;
+}
+
+.text-left{
+  text-align: left;
 }
 
 .form-control{
-	border: none;
-	border-bottom: 1px solid;
-	outline: none;
-	width: 100%;
-	display: block;
-	padding: 10px 0px;
-	font-size: 1.2em; 
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: 10px 0px;
+  font-size: 1.2em; 
 }
