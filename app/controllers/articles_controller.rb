@@ -4,27 +4,29 @@ class ArticlesController < ApplicationController
 	#GET /articles
 	def index
 		@articles = Article.all
-	end	
+	end
 	#GET /articles/:id
 	def show
 		@article.update_visits_count
 		@comment = Comment.new
-	end	
+	end
 	#GET /articles/new
-	def new 
+	def new
 		@article = Article.new
-	end	
+		@categories = Category.all
+	end
 
 	def edit
 	end
 	#POST /article/new
 	def create
 		@article = current_user.articles.new(article_params)
+		@article.categories = params[:categories]
 		if @article.save
 			redirect_to @article
 		else
 			render :new
-		end	
+		end
 	end
 
 	def destroy
@@ -39,7 +41,7 @@ class ArticlesController < ApplicationController
 			redirect_to @article
 		else
 			render :edit
-		end		
+		end
 	end
 
 	private
@@ -49,7 +51,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title,:body,:cover)
+		params.require(:article).permit(:title,:body,:cover,:categories)
 	end
 
 end

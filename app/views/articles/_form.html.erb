@@ -1,7 +1,7 @@
 <h1><%= name %> Articulo</h1>
 <%= form_for(@article) do |f| %>
 	<% @article.errors.full_messages.each do |messages| %>
-		<div class="be-green white top-space"> 
+		<div class="be-green white top-space">
 			* <%= messages %>
 		</div>
 	<%end%>
@@ -13,6 +13,14 @@
 	</div>
 	<div class="field">
 		<%= f.text_area :body, placeholder: "Escribe aquí el artículo", style:" height:250px;", class:"form-control" %>
+	</div>
+	<div class="field">
+		<labe>Categorias</labe>
+		<% @categories.each do |category|%>
+			<div class="field">
+				<%= check_box_tag "categories[]", category.id %> <%= category.name %>
+			</div>
+		<% end %>
 	</div>
 	<div class="field">
 		<%= f.submit "Guardar" , class:"btn be-green"%>

@@ -8,7 +8,7 @@ html,body{
   border: none;
   outline: none;
   text-transform: uppercase;
-  cursor: pointer; 
+  cursor: pointer;
   font-size: 1.2em;
   padding: 10px 12px;
   display:block;
@@ -22,7 +22,7 @@ html,body{
   border-bottom: solid blue;
   outline: none;
   text-transform: uppercase;
-  cursor: pointer; 
+  cursor: pointer;
   font-size: 1.2em;
   padding: 10px 12px;
 }
@@ -57,14 +57,14 @@ a,a:visited{
 }
 
 .field, .top-space, .actions {
-  margin-top:1em; 
+  margin-top:1em;
 }
 
 .top-space2{
   margin-top:2em;
 }
-.green{
-  color: green !important; 
+.blue{
+  color: blue !important; 
   font-weight:bold;
   font-size: 1.2em;
 }
@@ -80,5 +80,5 @@ a,a:visited{
   width: 100%;
   display: block;
   padding: 10px 0px;
-  font-size: 1.2em; 
+  font-size: 1.2em;
 }
