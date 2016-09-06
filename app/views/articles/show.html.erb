@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
 <div>
-	<%= @article.body %>
+	<%= @article.body.html_safe %>
 </div>
 <div>
 	<%= link_to "Editar", edit_article_path(@article), class:"green" %>
@@ -16,7 +16,9 @@
 	<% end %>
 </div>
 <div class="field">
-	<%= image_tag @article.cover.url(:thumb) %>
+	<% unless @article.cover_file_name.nil? %>
+		<%= image_tag @article.cover.url(:thumb) %>
+ 	<%	end %>
 </div>
 <p>
 		Visitas: <%= @article.visits_count%>
@@ -26,7 +28,7 @@
 	<ul id="comments-box">
 		<% @article.comments.each do |comment|%>
 			<li type="square">
-				<%= comment.body%> - Escrito por: <%= comment.user.email %>
+				<%= comment.body %> - Escrito por: <%= comment.user.email %>
 			</li>
 		<% end %>
 	</ul>

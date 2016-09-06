@@ -15,6 +15,9 @@ class Article < ActiveRecord::Base
   has_attached_file :cover, styles: { medium: "1280x720", thumb:"800x600"}
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+  scope :publicados, -> { where(state: "published") }
+
+  scope :ultimos, -> { order("created_at DESC") }
 
   #Cusom Setter
   def categories=(value)
@@ -41,8 +44,10 @@ class Article < ActiveRecord::Base
   private
 
   def save_categories
-    @categories.each do |category_id|
-      HasCategory.create(category_id: category_id, article_id: self.id)
+    unless @categories.nil?
+      @categories.each do |category_id|
+        HasCategory.create(category_id: category_id, article_id: self.id)
+      end
     end
   end
 

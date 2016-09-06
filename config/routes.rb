@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-   
+
   resources :categories
   devise_for :users
-  resources :articles do 
+  resources :articles do
     resources :comments, only: [:create, :destroy, :update]
-  end 
-=begin  
+  end
+=begin
       get "/articles" index
       post "/articles" crate
       delete "/articles:id" destroy
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       patch "/articles/:id" update
       put "/articles/:id" update
 =end
+
+  get "/dashboard", to: "welcome#dashboard"
+  put "/articles/:id/publish", to: "articles#publish" 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
