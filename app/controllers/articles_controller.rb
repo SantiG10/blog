@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
 	#GET /articles
 	def index
-		@articles = Article.paginate(page: params[:page], per_page:5).publicados.ultimos
+		@articles = Article.paginate(page: params[:page], per_page:6).publicados.ultimos
 	end
 	#GET /articles/:id
 	def show
@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title,:body,:cover,:categories)
+		params.require(:article).permit(:title,:body,:cover,:categories,:markup_body)
 	end
 
 end

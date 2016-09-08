@@ -5,8 +5,14 @@
 	<title>Document</title>
 </head>
 <body>
-	<% if user_signed_in? %>
-	<h1> Bienvenido <%= current_user.email %></h1>
-	<% end %>
+	<div class="container-fluid">
+		<% if user_signed_in? %>
+		<h1> Bienvenido <%= current_user.email %></h1>
+		<% end %>
+		<p>
+			Acá podrás publicar todo lo que se te ocurra..!
+		</p>
+	</div>
+
 </body>
 </html>

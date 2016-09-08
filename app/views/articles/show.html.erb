@@ -1,36 +1,42 @@
-<h1><%= @article.title %></h1>
-<div>
-	<%= @article.body.html_safe %>
-</div>
-<div>
-	<%= link_to "Editar", edit_article_path(@article), class:"green" %>
-</div>
-<% unless @article.user.nil? %>
-	<p>
-		Escrito por: <%= @article.user.email%>
-	</p>
-<% end %>
-<div class="field">
-	<% @article.categories.each do |category| %>
-		<%= link_to category.name, category, style:"color:#{category.color};"%>
-	<% end %>
-</div>
-<div class="field">
+<article class="bottom-space">
 	<% unless @article.cover_file_name.nil? %>
-		<%= image_tag @article.cover.url(:thumb) %>
- 	<%	end %>
-</div>
-<p>
-		Visitas: <%= @article.visits_count%>
-</p>
-<div class="feild">
-	<h3>Comentarios</h3>
-	<ul id="comments-box">
-		<% @article.comments.each do |comment|%>
-			<li type="square">
-				<%= comment.body %> - Escrito por: <%= comment.user.email %>
-			</li>
-		<% end %>
-	</ul>
-	<%= render "comments/form" %>
-</div>
+		<%= article_cover @article.cover.url(:thumb) %>
+	<% end %>
+	<div class="row center-xs">
+		<div class="col-xs-12 ligth-border col-md-7">
+			<h1 class="be-big"><%= @article.title %></h1>
+			<p class="text-left be-small">
+				<%= link_to "Atrás", articles_path, class:"underline"%> -
+				<span class="red"> <%= @article.visits_count%> Visita(s) </span> -
+				<% unless @article.user.nil? %>
+						Escrito por: <%= @article.user.email%>
+				<% end %>
+			</p>
+			<div class="text-justify">
+				<%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+			</div>
+			<div class="be-small text-rigth">
+				Categoria(s) -
+				<% @article.categories.each do |category| %>
+					<%= link_to category.name, category, style:"color:#{category.color};"%>
+				<% end %>
+			</div>
+			<div>
+				<%= render "articles/comments" %>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="feild">
+		<h3>Comentarios</h3>
+		<ul id="comments-box">
+			<% @article.comments.each do |comment|%>
+				<li type="square">
+					<%= comment.body %> - Escrito por: <%= comment.user.email %>
+				</li>
+			<% end %>
+		</ul>
+		<%= render "comments/form" %>
+	</div> -->
+
+</article>

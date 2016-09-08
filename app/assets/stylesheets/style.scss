@@ -58,8 +58,45 @@ a,a:visited{
   margin: 0px;
 }
 
+.red{
+  color: red;
+}
+
+.grey{
+  color: grey;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.comments{
+  width: 500px;
+  height: 100px;
+}
+
 #logo{
   font-size: 1.2em;
+}
+
+.be-big{
+  font-size: 2em;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.text-rigth{
+  text-align: right;
+}
+
+.be-small{
+  font-size: 12px;
+}
+
+.bottom-space{
+  margin-bottom: 2em;
 }
 
 .field, .top-space, .actions {
@@ -69,6 +106,10 @@ a,a:visited{
 .top-space2{
   margin-top:2em;
 }
+
+.top-space3{
+  margin-top:3em;
+}
 .blue{
   color: blue !important;
   font-weight:bold;
@@ -77,6 +118,27 @@ a,a:visited{
 
 .text-left{
   text-align: left;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.relative{
+  position: relative;
+}
+
+.article-heigth{
+  height: 150px;
+}
+
+.background-cover{
+  background-position: center;
+  background-size: cover;
+}
+
+.absolute{
+  position: absolute;
 }
 
 .form-control{
