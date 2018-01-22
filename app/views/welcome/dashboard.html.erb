@@ -1,15 +1,29 @@
-<% @articles.each do |article| %>
-	<h1><%= link_to article.title, article %></h1>
+<div class="container">
 	<div>
-		<%= article.body %> - <%= link_to "Eliminar", article, method: :delete, class:"blue"  %>
-    <%if article.may_published? %>
-      -
-      <%= link_to "Publicar", "/articles/#{article.id}/publish", method: :put, class:"green"  %>
-    <% end %>
+		<h1> Categorías </h1>
+		- <%= link_to "Administrar categorías", categories_path %>
 	</div>
-	<% unless article.user.nil? %>
-		<p>
-			Escrito por: <%= article.user.email%>
-		</p>
-	<%end%>
-<%end%>
+
+	<div>
+		<h1> Artículos </h1>
+		<% @articles.each do |article| %>
+			<h3><%= link_to article.title, article %></h3>
+			<div>
+				<%= article.body %> - <%= link_to "Eliminar", article, method: :delete, class: "red"  %>
+				-
+				<%= link_to "Editar", edit_article_path(article), class: "blue" %>
+				-
+				<%if article.may_published? %>
+		      <%= link_to "Publicar", "/articles/#{article.id}/publish", method: :put, class: "green"  %>
+				<% else %>
+					<%= link_to "No Publicar", "/articles/#{article.id}/unpublish", method: :put, class: "green"  %>
+				<% end %>
+			</div>
+			<% unless article.user.nil? %>
+				<p>
+					Escrito por: <%= article.user.email%>
+				</p>
+			<%end%>
+		<%end%>
+	</div>
+</div>

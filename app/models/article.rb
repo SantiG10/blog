@@ -10,10 +10,10 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true, length: {minimum: 20}
   before_create :set_visits_count
-  after_create :save_categories
+  after_save :save_categories
   after_create :send_mail
 
-  has_attached_file :cover, styles: { medium: "1280x720", thumb:"800x600"}
+  has_attached_file :cover, styles: { medium: "1280x720", thumb:"800x600"}, default_url: "missing.png"
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   scope :publicados, -> { where(state: "published") }
@@ -51,7 +51,9 @@ class Article < ActiveRecord::Base
   def save_categories
     unless @categories.nil?
       @categories.each do |category_id|
-        HasCategory.create(category_id: category_id, article_id: self.id)
+        unless HasCategory.exists?(article_id: self.id, category_id: category_id)
+          HasCategory.create(category_id: category_id, article_id: self.id)
+        end
       end
     end
   end

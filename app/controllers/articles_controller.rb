@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all
 	end
 	#POST /article/new
 	def create
@@ -37,10 +38,11 @@ class ArticlesController < ApplicationController
 		redirect_to articles_path
 	end
 
-
 	#PUT /articles/:id
 	def update
 		if @article.update(article_params)
+			@article.categories = params[:categories]
+			@article.save
 			redirect_to @article
 		else
 			render :edit
@@ -50,6 +52,11 @@ class ArticlesController < ApplicationController
 	def publish
 		@article.published!
 		redirect_to @article
+	end
+
+	def unpublish
+		@article.unpublished!
+		redirect_to dashboard_path
 	end
 
 	private

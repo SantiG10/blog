@@ -17,7 +17,7 @@
 		<div id="epiceditor" style="height:350px;"></div>
 	</div>
 	<div class="field">
-		<labe>Categorias</labe>
+		<labe>Categorías</labe>
 		<% @categories.each do |category|%>
 			<div class="field">
 				<%= check_box_tag "categories[]", category.id %> <%= category.name %>
